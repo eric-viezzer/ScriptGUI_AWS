@@ -4,6 +4,7 @@ PURPLE='0;35'
 NC='\033[0m'
 VERSAO=11
 
+clear
 echo "
 @@@  @@@  @@@  @@@@@@@@  @@@@@@@@  @@@@@@@       @@@@@@    @@@@@@    @@@@@@   @@@   @@@@@@   @@@@@@@  
 @@@  @@@  @@@  @@@@@@@@  @@@@@@@@  @@@@@@@@     @@@@@@@@  @@@@@@@   @@@@@@@   @@@  @@@@@@@   @@@@@@@  
@@ -16,7 +17,7 @@ echo "
   ::::     ::   :: ::::   :: ::::  ::   :::     ::   :::  :::: ::   :::: ::    ::  :::: ::      ::    
    :      :    : :: : :  : :: ::    :   : :      :   : :  :: : :    :: : :    :    :: : :       :    
 "
-sleep 5
+sleep 3
 clear
 
 echo "[Vizer] Olá, serei seu assistente java!;"
@@ -61,8 +62,6 @@ if [ $? -eq 0 ]; then
         clear
         sudo docker ps
         echo "[Vizer] Deseja abrir o software Zini (S/N)?"
-        sleep 3
-        clear
         read inst
         if [ \"$inst\" == \"s\" ]; then
             cd /home/ubuntu/Desktop/2ADSB-2021-1-Grupo-03/Java/projeto-zini/target
