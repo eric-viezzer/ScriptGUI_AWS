@@ -37,13 +37,14 @@ if [ $? -eq 0 ]; then
         sleep 3
         sudo apt install docker.io
         clear
+        echo "[Vizer] Habilitando docker..."
         sudo systemctl start docker
         sudo systemctl enable docker
         sleep 3
         clear
         echo "[Vizer] Verificando versão do Docker..."
         docker --version
-        sleep 2
+        sleep 4
         clear
         echo "[Vizer] Instalando mysql..."
         sudo docker pull mysql:5.7
@@ -113,33 +114,32 @@ else
                 sudo apt update
                 clear
                 echo "[Vizer] Confirme quando solicitado..."
-                sleep 2
+                sleep 3
                 sudo apt install docker.io
                 clear
+                echo "[Vizer] Habilitando docker..."
                 sudo systemctl start docker
                 sudo systemctl enable docker
-                sleep 2
+                sleep 3
                 clear
                 echo "[Vizer] Verificando versão do Docker..."
                 docker --version
-                sleep 2
+                sleep 4
                 clear
                 echo "[Vizer] Instalando mysql..."
-                sleep 2
-                clear
                 sudo docker pull mysql:5.7
                 clear
                 echo "[Vizer] Listando todas as imagens"
-                sleep 2
+                sudo docker images
+                sleep 5
                 clear
                 echo "[Vizer] Confinando aplicação Mysql em um conteiner"
-                sleep 2
-                clear
                 sudo docker run -d -p 3306:3306 --name ConteinerMysql -e "MYSQL_DATABASE=bancoMysql" -e "MYSQL_ROOT_PASSWORD=urubu100" mysql:5.7
-                echo "[Vizer] Vamos ver oq temos no conteiner"
-                sleep 2
+                sleep 3
                 clear
+                echo "[Vizer] Vamos ver oq temos no conteiner"
                 sudo docker ps
+                sleep 4
             else
                 clear
                 echo "[Vizer] ok..."
@@ -173,30 +173,29 @@ else
             sleep 3
             sudo apt install docker.io
             clear
+            echo "[Vizer] Habilitando docker..."
             sudo systemctl start docker
             sudo systemctl enable docker
             sleep 3
             clear
             echo "[Vizer] Verificando versão do Docker..."
             docker --version
-            sleep 2
+            sleep 4
             clear
             echo "[Vizer] Instalando mysql..."
-            sleep 2
-            clear
             sudo docker pull mysql:5.7
             clear
             echo "[Vizer] Listando todas as imagens"
-            sleep 2
+            sudo docker images
+            sleep 5
             clear
             echo "[Vizer] Confinando aplicação Mysql em um conteiner"
-            sleep 2
-            clear
             sudo docker run -d -p 3306:3306 --name ConteinerMysql -e "MYSQL_DATABASE=bancoMysql" -e "MYSQL_ROOT_PASSWORD=urubu100" mysql:5.7
-            echo "[Vizer] Vamos ver oq temos no conteiner"
-            sleep 2
+            sleep 3
             clear
+            echo "[Vizer] Vamos ver oq temos no conteiner"
             sudo docker ps
+            sleep 4
         fi
     fi
 fi
