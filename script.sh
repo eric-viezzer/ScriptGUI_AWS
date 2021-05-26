@@ -46,21 +46,19 @@ if [ $? -eq 0 ]; then
         sleep 2
         clear
         echo "[Vizer] Instalando mysql..."
-        sleep 2
-        clear
         sudo docker pull mysql:5.7
         clear
         echo "[Vizer] Listando todas as imagens"
-        sleep 2
+        sudo docker images
+        sleep 5
         clear
         echo "[Vizer] Confinando aplicação Mysql em um conteiner"
-        sleep 2
-        clear
         sudo docker run -d -p 3306:3306 --name ConteinerMysql -e "MYSQL_DATABASE=bancoMysql" -e "MYSQL_ROOT_PASSWORD=urubu100" mysql:5.7
-        echo "[Vizer] Vamos ver oq temos no conteiner"
-        sleep 2
+        sleep 3
         clear
+        echo "[Vizer] Vamos ver oq temos no conteiner"
         sudo docker ps
+        sleep 4
         echo "[Vizer] Deseja abrir o software Zini (S/N)?"
         read inst
         if [ \"$inst\" == \"s\" ]; then
