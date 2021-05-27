@@ -140,6 +140,16 @@ else
                 echo "[Vizer] Vamos ver oq temos no conteiner"
                 sudo docker ps
                 sleep 4
+                echo "[Vizer] Deseja abrir o software Zini (S/N)?"
+                read inst
+                if [ \"$inst\" == \"s\" ]; then
+                    cd /home/ubuntu/Desktop/2ADSB-2021-1-Grupo-03/Java/projeto-zini/target
+                    java -jar projeto-zini-1.0-SNAPSHOT-jar-with-dependencies.jar
+                else
+                    echo"[Vizer] ok..."
+                    clear
+                    sleep 2
+                fi
             else
                 clear
                 echo "[Vizer] ok..."
