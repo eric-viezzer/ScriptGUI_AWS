@@ -20,7 +20,7 @@ echo "
 sleep 3
 clear
 
-echo "[Vizer] Olá, serei seu assistente java!;"
+echo "[Vizer] Olá, serei seu assistente!;"
 echo "[Vizer] Verificando aqui se você possui o Java instalado...;"
 
 java -version
@@ -28,49 +28,61 @@ if [ $? -eq 0 ]; then
     echo "[Vizer] Java encontrado!"
     sleep 2
     clear
-    echo "[Vizer] Deseja criar um Docker (S/N)?"
-    read inst
-    if [ \"$inst\" == \"s\" ]; then
-        sudo apt update
+    echo "[Vizer] Verificando se voçe possui um docker...."
+    sleep 2
+    docker --version
+    if [$? -eq 0 ]; then
+        echo "[Vizer] Docker encontrado!"
+        sleep 2
         clear
-        echo "[Vizer] Confirme quando solicitado..."
-        sleep 3
-        sudo apt install docker.io
+    else
+        echo "[Vizer] Docker nao foi encontrado..."
+        sleep 2
         clear
-        echo "[Vizer] Habilitando docker..."
-        sudo systemctl start docker
-        sudo systemctl enable docker
-        sleep 3
-        clear
-        echo "[Vizer] Verificando versão do Docker..."
-        docker --version
-        sleep 4
-        clear
-        echo "[Vizer] Instalando mysql..."
-        sudo docker pull mysql:5.7
-        clear
-        echo "[Vizer] Listando todas as imagens"
-        sudo docker images
-        sleep 5
-        clear
-        echo "[Vizer] Confinando aplicação Mysql em um conteiner"
-        sudo docker run -d -p 3306:3306 --name ConteinerMysql -e "MYSQL_DATABASE=bancoMysql" -e "MYSQL_ROOT_PASSWORD=urubu100" mysql:5.7
-        sleep 3
-        clear
-        echo "[Vizer] Vamos ver oq temos no conteiner"
-        sudo docker ps
-        sleep 4
-        echo "[Vizer] Deseja abrir o software Zini (S/N)?"
+        echo "[Vizer] Deseja criar um Docker (S/N)?"
         read inst
         if [ \"$inst\" == \"s\" ]; then
-            cd /home/ubuntu/Desktop/2ADSB-2021-1-Grupo-03/Java/projeto-zini/target
-            java -jar projeto-zini-1.0-SNAPSHOT-jar-with-dependencies.jar
-        else
-            echo"[Vizer] ok..."
+            sudo apt update
             clear
+            echo "[Vizer] Confirme quando solicitado..."
+            sleep 3
+            sudo apt install docker.io
+            clear
+            echo "[Vizer] Habilitando docker..."
+            sudo systemctl start docker
+            sudo systemctl enable docker
+            sleep 3
+            clear
+            echo "[Vizer] Verificando versão do Docker..."
+            docker --version
+            sleep 4
+            clear
+            echo "[Vizer] Instalando mysql..."
+            sudo docker pull mysql:5.7
+            clear
+            echo "[Vizer] Listando todas as imagens"
+            sudo docker images
             sleep 5
+            clear
+            echo "[Vizer] Confinando aplicação Mysql em um conteiner"
+            sudo docker run -d -p 3306:3306 --name ConteinerMysql -e "MYSQL_DATABASE=bancoMysql" -e "MYSQL_ROOT_PASSWORD=urubu100" mysql:latest
+            sleep 3
+            clear
+            echo "[Vizer] Vamos ver oq temos no conteiner"
+            sudo docker ps
+            sleep 4
+            echo "[Vizer] Deseja abrir o software Zini (S/N)?"
+            read inst
+            if [ \"$inst\" == \"s\" ]; then
+                cd /home/ubuntu/Desktop/2ADSB-2021-1-Grupo-03/Java/projeto-zini/
+                sudo docker run ziniapp
+            else
+                echo"[Vizer] ok..."
+                clear
+                sleep 5
+            fi
         fi
-    else
+        else
         clear
         echo "[Vizer] ok..."
         sleep 5
