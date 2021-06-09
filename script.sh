@@ -49,13 +49,26 @@ else
             clear
             echo "[Vizer] Java instalado com sucesso!"
         fi
+        echo "[Vizer] Deseja executar o java? (s/n)"
+        read inst
+        if [ \"$inst\" == \"s\" ]; then
+            echo "[Vizer] Coloque sua conta GitHub quando solicitado..."
+            sleep 3
+            clear
+            cd /home/ubuntu/Desktop/
+            git clone https://github.com/BandTec/2ADSB-2021-1-Grupo-03
+            cd /home/ubuntu/Desktop/2ADSB-2021-1-Grupo-03/Java/projeto-zini/
+            sudo docker run ziniapp
+        else
+            echo "[Zini] ok... :)"
+            sleep 2
+        fi
     else
-        echo "[Vizer] Você optou por não instalar o Java por enquanto, até a próxima então!"
+        echo "[Vizer] Você optou por não instalar o Java por enquanto!"
         sleep 3
         clear
     fi
 fi
-sleep 2
 clear
 echo "[Vizer] Verificando se possui voçe possui um docker..."
 sleep 2
@@ -89,6 +102,20 @@ else
         sleep 4
         clear
         echo "[Vizer] Docker iniciado com sucesso!!!"
+        echo "[Vizer] Deseja executar o java? (s/n)"
+        read inst
+        if [ \"$inst\" == \"s\" ]; then
+            echo "[Vizer] Coloque sua conta GitHub quando solicitado..."
+            sleep 3
+            clear
+            cd /home/ubuntu/Desktop/
+            git clone https://github.com/BandTec/2ADSB-2021-1-Grupo-03
+            cd /home/ubuntu/Desktop/2ADSB-2021-1-Grupo-03/Java/projeto-zini/
+            sudo docker run ziniapp
+        else
+            echo "[Zini] ok... :)"
+            sleep 2
+        fi
     else
         echo "[Vizer] Voce optou por nao instalar o docker..."
         sleep 2
